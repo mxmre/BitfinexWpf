@@ -1,0 +1,41 @@
+﻿<Window x:Class="BitfinexWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BitfinexWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="337*"/>
+            <RowDefinition Height="317*"/>
+
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="dataGrid" Grid.Row="1" ItemsSource="{Binding Moneys}"
+                  AutoGenerateColumns="False" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.135"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.498"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100" Header="USDT" Binding="{Binding TotalUSDT}"/>
+                <DataGridTextColumn Width="100" Header="BTC" Binding="{Binding TotalBTC}"/>
+                <DataGridTextColumn Width="100" Header="XRP" Binding="{Binding TotalXRP}"/>
+                <DataGridTextColumn Width="100" Header="XMR" Binding="{Binding TotalXMR}"/>
+                <DataGridTextColumn Width="100" Header="DASH" Binding="{Binding TotalDASH}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <RichTextBox x:Name="textLogs" Grid.Row ="2">
+
+        </RichTextBox>
+        <Button x:Name="btnCon" Content="Подключиться" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="122" Click="btnCon_Click"/>
+        <Button x:Name="btnDis" Content="Отключится" HorizontalAlignment="Left" Margin="150,0,0,0" VerticalAlignment="Center" Width="122" IsEnabled="False" Click="btnDis_Click"/>
+        <Button x:Name="btnUpdate" Content="Обновить" HorizontalAlignment="Left" Margin="291,0,0,0" VerticalAlignment="Center" Width="122" Click="btnUpdate_Click"/>
+    </Grid>
+</Window>
